@@ -10,6 +10,14 @@
 
   let player = null, ready = false, pending = null, lastId = null, lastVersion = -1;
 
+  // Teste visual: confirma que a página do DUI está desenhando na superfície
+  window.addEventListener('load', () => {
+    wait.textContent = 'DUI OK';
+    wait.style.background = '#e11d2e';
+    wait.style.color = '#ffffff';
+    setTimeout(() => { wait.style.background = ''; wait.style.color = ''; }, 6000);
+  });
+
   function toParent(payload) {
     if (inFrame) window.parent.postMessage(Object.assign({ source: 'fury_tv_player' }, payload), '*');
   }
